@@ -59,7 +59,7 @@ export default function FloppyBird() {
   );
 
   const checkBoundary = useCallback((bird: { x: number; y: number }) => {
-    if (bird.y < BIRD_SIZE || bird.y > GAME_HEIGHT - 5) {
+    if (bird.y < 0 || bird.y > GAME_HEIGHT - 5) {
       return true;
     }
   }, []);
@@ -155,19 +155,12 @@ export default function FloppyBird() {
         onKeyUp={handleKeyUp}
         autoFocus
       >
-        {/* <div
-          className="absolute size-4 bg-yellow-400"
-          style={{
-            left: `${birdPositionRef.current.x}px`,
-            bottom: `${birdPositionRef.current.y}px`,
-          }}
-        /> */}
         <Image
           src="/brett.webp"
           alt="brett"
           width={250}
           height={250}
-          className="absolute size-9"
+          className="absolute size-9 object-fill"
           style={{
             left: `${birdPositionRef.current.x}px`,
             bottom: `${birdPositionRef.current.y}px`,
